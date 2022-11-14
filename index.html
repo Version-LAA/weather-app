@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Prototype</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mainFrame">
+        <form class="search-form">
+          <input id="city" type="search" placeholder="Enter Location" />
+          <input class="searchButton" type="submit" placeholder="Search" />
+          <button id="current-location">current location</button>
+        </form>
+
+        <div id="currentdate"></div>
+
+        <div class="currentTemp">
+          <div class="row">
+            <div class="col">
+              <div class="temp">
+                <span id="temp-a"></span> <a href="" id="ftemp"> °F </a
+                ><span id="line"> | </span>
+                <a href="" id="ctemp">°C </a>
+              </div>
+            </div>
+            <div class="col-3" id="location"></div>
+          </div>
+        </div>
+        <div class="futureTempImages">
+          <div class="row" id="pics">
+            <div class="col">
+              ❄️
+              <br />
+              <div class="ftemp">35°</div>
+            </div>
+            <div class="col">
+              🌧<br />
+              <div class="ftemp">45°</div>
+            </div>
+            <div class="col">
+              ⛈<br />
+              <div class="ftemp">49°</div>
+            </div>
+            <div class="col">
+              🌞<br />
+              <div class="ftemp">52°</div>
+            </div>
+            <div class="col">
+              🌥<br />
+              <div class="ftemp">55°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
