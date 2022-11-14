@@ -31,9 +31,32 @@
     <div class="container">
       <div class="mainFrame">
         <form class="search-form">
-          <input id="city" type="search" placeholder="Enter Location" />
+          <div class="input-group">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Enter a City"
+              aria-label="City search with two button addons"
+              id="city"
+            />
+            <button
+              id="search-button"
+              class="btn btn-outline-secondary"
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              id="current-location"
+              class="btn btn-outline-secondary"
+              type="button"
+            >
+              Current Location
+            </button>
+          </div>
+          <!--<input id="city" type="search" placeholder="Enter Location" />
           <input class="searchButton" type="submit" placeholder="Search" />
-          <button id="current-location">current location</button>
+          <button id="current-location">current location</button>-->
         </form>
 
         <div id="currentdate"></div>
