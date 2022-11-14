@@ -1,0 +1,75 @@
+.mainFrame {
+  text-align: left;
+  padding: 75px;
+  margin: 50px;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 30px;
+  box-shadow: 10px 5px 5px grey;
+  max-width: 750px;
+  width: 650px;
+}
+.searchButton {
+  border-radius: 20px;
+  background: rgb(165, 209, 209);
+  box-shadow: 10px 5px 5px grey;
+}
+
+.search {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+#current-location {
+  border-radius: 20px;
+  background: rgb(165, 209, 209);
+  box-shadow: 10px 5px 5px grey;
+  font-size: 14px;
+  text-align: right;
+  margin-left: 115px;
+}
+.temp {
+  font-size: 45px;
+  font-weight: bolder;
+  font-family: "Poor Story", cursive;
+}
+#ftemp {
+  text-decoration: none;
+  font-size: 32px;
+}
+#ctemp {
+  text-decoration: none;
+  font-size: 32px;
+}
+#line {
+  font-size: 25px;
+}
+
+#cTempPic {
+  font-size: 50px;
+}
+.futureTempImages {
+  padding-top: 50px;
+}
+
+.futureTemps {
+  padding-top: 20px;
+}
+.ftemp {
+  font-size: 24px;
+  position: relative;
+  right: -15px;
+  font-family: "Poor Story", cursive;
+}
+#pics {
+  font-size: 50px;
+}
+#location {
+  font-size: 40px;
+  font-family: "Poor Story", cursive;
+  font-weight: bold;
+}
+#pics {
+  padding-left: 50px;
+  border-radius: 20px;
+  background-color: rgb(165, 209, 209);
+  backdrop-filter: blur(5px);
+}
