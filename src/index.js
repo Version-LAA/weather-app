@@ -60,6 +60,11 @@ function getTemp(response) {
   weatherCheck(weather);
 }
 
+// get 5 day forecast
+function getForecast(response) {
+  console.log(response.data);
+}
+
 // Display city name
 
 function userSearch(event) {
@@ -80,7 +85,9 @@ function returnPosition(position) {
   console.log(longitude);
   let api = "d40d99ee0c9a7197579e19ec00ff7c05";
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
+  let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
   axios.get(url).then(getTemp);
+  axios.get(urlForecast).then(getForecast);
 }
 
 function getCoordinates() {
