@@ -13,10 +13,15 @@ let days = [
 let showdate = document.querySelector("#currentdate");
 console.log(days[currentday]);
 console.log(date.getHours());
-showdate.innerHTML = `${
-  days[currentday]
-} ${date.getHours()}:${date.getMinutes()}`;
-
+if (date.getMinutes() >= 10) {
+  showdate.innerHTML = `${days[currentday]} 
+${date.getHours()}:${date.getMinutes()}`;
+  console.log(date);
+} else {
+  showdate.innerHTML = `${days[currentday]} 
+${date.getHours()}:0${date.getMinutes()}`;
+  console.log(date);
+}
 //get temp function
 
 function getTemp(response) {
