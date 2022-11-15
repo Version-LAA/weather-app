@@ -1,3 +1,5 @@
+// Weather Emojis
+let weatherImage = [];
 // Display date and time
 let date = new Date();
 let currentday = date.getDay();
@@ -22,14 +24,40 @@ ${date.getHours()}:${date.getMinutes()}`;
 ${date.getHours()}:0${date.getMinutes()}`;
   console.log(date);
 }
+// function to get weather images
+function weatherCheck(weather) {
+  let weatherImage = document.querySelector("#weather-image");
+  if (weather === "clear sky") {
+    weatherImage.setAttribute("src", "images/sunrise.gif");
+  } else if (weather === "few clouds") {
+    weatherImage.setAttribute("src", "images/cloudy.gif");
+  } else if (weather === "scattered clouds") {
+    weatherImage.setAttribute("src", "images/clouds.gif");
+  } else if (weather === "broken clouds") {
+    weatherImage.setAttribute("src", "images/clouds.gif");
+  } else if (weather === "thunderstorm") {
+    weatherImage.setAttribute("src", "images/storm.gif");
+  } else if (weather === "snow") {
+    weatherImage.setAttribute("src", "images/snowflake.gif");
+  } else if (weather === "rain" || weather === "shower rain") {
+    weatherImage.setAttribute("src", "images/rain.gif");
+  } else if (weather === "mist") {
+    weatherImage.setAttribute("src", "images/foggy.gif");
+  }
+}
+
 //get temp function
 
 function getTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let mainTemp = document.querySelector("#temp-a");
+  let weather = response.data.weather[0].description;
   mainTemp.innerHTML = `${temp}°`;
   let currentLocation = document.querySelector("#location");
   currentLocation.innerHTML = response.data.name;
+  console.log(response.data.weather[0].description);
+
+  weatherCheck(weather);
 }
 
 // Display city name
