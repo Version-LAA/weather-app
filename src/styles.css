@@ -37,21 +37,30 @@ body {
 }
 
 .temp {
-  font-size: 45px;
+  font-size: 55px;
   font-weight: bolder;
   font-family: "Poor Story", cursive;
 }
 
 #ftemp {
+  position: relative;
   text-decoration: none;
-  font-size: 32px;
+  font-size: 15px;
+  right: 25px;
+  bottom: 25px;
 }
 #ctemp {
+  position: relative;
   text-decoration: none;
-  font-size: 32px;
+  font-size: 15px;
+  right: 25px;
+  bottom: 25px;
 }
 #line {
-  font-size: 25px;
+  position: relative;
+  font-size: 15px;
+  right: 25px;
+  bottom: 25px;
 }
 
 #cTempPic {
@@ -83,9 +92,12 @@ body {
   font-size: 50px;
 }
 #location {
-  font-size: 35px;
+  position: relative;
+  left: -50px;
+  font-size: 50px;
   font-family: "Poor Story", cursive;
   font-weight: bold;
+  padding-right: 15px;
 }
 #pics {
   padding-left: 50px;
