@@ -42,7 +42,8 @@ function weatherCheck(weather) {
   } else if (
     weather === "rain" ||
     weather === "shower rain" ||
-    weather === "moderate rain"
+    weather === "moderate rain" ||
+    weather === "heavy intensity rain"
   ) {
     weatherImage.setAttribute("src", "images/rain.gif");
   } else if (weather === "mist") {

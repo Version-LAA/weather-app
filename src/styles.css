@@ -57,6 +57,15 @@ body {
 #cTempPic {
   font-size: 50px;
 }
+.weather-info {
+  position: relative;
+  bottom: 25px;
+  right: 25px;
+  list-style: none;
+  text-align: right;
+  padding-right: 10px;
+  font-family: "Poor Story", cursive;
+}
 .futureTempImages {
   padding-top: 50px;
 }
@@ -87,8 +96,9 @@ body {
 #weather-image {
   width: 65px;
   padding-right: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
+
 footer {
   padding-left: 75px;
   margin: auto;
