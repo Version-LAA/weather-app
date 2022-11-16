@@ -39,7 +39,11 @@ function weatherCheck(weather) {
     weatherImage.setAttribute("src", "images/storm.gif");
   } else if (weather === "snow") {
     weatherImage.setAttribute("src", "images/snowflake.gif");
-  } else if (weather === "rain" || weather === "shower rain") {
+  } else if (
+    weather === "rain" ||
+    weather === "shower rain" ||
+    weather === "moderate rain"
+  ) {
     weatherImage.setAttribute("src", "images/rain.gif");
   } else if (weather === "mist") {
     weatherImage.setAttribute("src", "images/foggy.gif");
