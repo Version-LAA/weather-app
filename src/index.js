@@ -50,6 +50,7 @@ function getTemp(response) {
   let weather = response.data.weather[0].description;
   let humidtiy = response.data.main.humidity;
   let wind = response.data.wind.speed;
+  let weather_desc = response.data.weather[0].description;
   //let precepitation=
   mainTemp.innerHTML = `${temp}°`;
   let currentLocation = document.querySelector("#location");
@@ -58,6 +59,8 @@ function getTemp(response) {
   console.log(response.data);
   let update_humidity = document.querySelector("#humidity");
   let update_wind = document.querySelector("#wind");
+  let weather_description = document.querySelector("#weather-desc");
+  weather_description.innerHTML = weather_desc;
 
   update_humidity.innerHTML = `${humidtiy}%`;
   update_wind.innerHTML = `${Math.round(wind)} mph`;
