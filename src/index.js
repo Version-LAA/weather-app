@@ -16,9 +16,11 @@ let showdate = document.querySelector("#currentdate");
 if (date.getMinutes() >= 10) {
   showdate.innerHTML = `${days[currentday]} 
 ${date.getHours()}:${date.getMinutes()}`;
+  console.log(date);
 } else {
   showdate.innerHTML = `${days[currentday]} 
 ${date.getHours()}:0${date.getMinutes()}`;
+  console.log(date);
 }
 // function to get weather images
 function weatherCheck(weather) {
@@ -63,6 +65,7 @@ function getTemp(response) {
   //   console.log(response.data);
   //   console.log(response.data.main.humidity);
   //   console.log(response.data.wind.speed);
+  to_celcius = Math.round(temp);
   weatherCheck(weather);
 }
 
@@ -114,15 +117,17 @@ function showFare(event) {
 
   let faretemp = document.querySelector("#ftemp");
   let temp = document.querySelector("#temp-a");
-
-  temp.innerHTML = "66°";
+  temp.innerHTML = to_celcius;
 }
+
+let to_celcius = null;
 
 function showCel(event) {
   event.preventDefault();
   let celtemp = document.querySelector("#ctemp");
   let temp = document.querySelector("#temp-a");
-  temp.innerHTML = "19°";
+  let convert_c = ((to_celcius - 32) * 5) / 9;
+  temp.innerHTML = Math.round(convert_c);
 }
 
 let tempSelect1 = document.querySelector("#ftemp");

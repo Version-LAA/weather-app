@@ -46,20 +46,20 @@ body {
   position: relative;
   text-decoration: none;
   font-size: 15px;
-  right: 25px;
+  right: 9px;
   bottom: 25px;
 }
 #ctemp {
   position: relative;
   text-decoration: none;
   font-size: 15px;
-  right: 25px;
+  right: 3px;
   bottom: 25px;
 }
 #line {
   position: relative;
   font-size: 15px;
-  right: 25px;
+  right: 5px;
   bottom: 25px;
 }
 
