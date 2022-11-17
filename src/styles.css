@@ -69,6 +69,7 @@ body {
 .weather-info {
   position: relative;
   bottom: 25px;
+  font-size: 15px;
   right: 25px;
   list-style: none;
   text-align: right;
@@ -99,6 +100,12 @@ body {
   font-weight: bold;
   padding-right: 15px;
   padding-bottom: 10px;
+}
+#humidity {
+  color: #a5d1d0;
+}
+#wind {
+  color: #a5d1d0;
 }
 #pics {
   padding-left: 50px;
