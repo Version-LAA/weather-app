@@ -13,16 +13,12 @@ let days = [
   "Saturday",
 ];
 let showdate = document.querySelector("#currentdate");
-console.log(days[currentday]);
-console.log(date.getHours());
 if (date.getMinutes() >= 10) {
   showdate.innerHTML = `${days[currentday]} 
 ${date.getHours()}:${date.getMinutes()}`;
-  console.log(date);
 } else {
   showdate.innerHTML = `${days[currentday]} 
 ${date.getHours()}:0${date.getMinutes()}`;
-  console.log(date);
 }
 // function to get weather images
 function weatherCheck(weather) {
@@ -91,8 +87,7 @@ function userSearch(event) {
 function returnPosition(position) {
   let lat = position.coords.latitude;
   let longitude = position.coords.longitude;
-  console.log(lat);
-  console.log(longitude);
+
   let api = "d40d99ee0c9a7197579e19ec00ff7c05";
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
   let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
