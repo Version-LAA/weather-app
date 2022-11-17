@@ -29,45 +29,47 @@ function weatherCheck(weather) {
   let weatherImage = document.querySelector("#weather-image");
   if (weather === "clear sky") {
     weatherImage.setAttribute("src", "images/sunrise.gif");
-  } else if (weather === "few clouds") {
-    weatherImage.setAttribute("src", "images/cloudy.gif");
-  } else if (weather === "scattered clouds") {
-    weatherImage.setAttribute("src", "images/clouds.gif");
-  } else if (weather === "broken clouds") {
-    weatherImage.setAttribute("src", "images/clouds.gif");
   } else if (weather === "thunderstorm") {
     weatherImage.setAttribute("src", "images/storm.gif");
   } else if (weather === "snow") {
     weatherImage.setAttribute("src", "images/snowflake.gif");
-  } else if (
-    weather === "rain" ||
-    weather === "shower rain" ||
-    weather === "moderate rain" ||
-    weather === "heavy intensity rain"
-  ) {
+  } else if (weather.includes("rain")) {
     weatherImage.setAttribute("src", "images/rain.gif");
   } else if (weather === "mist") {
     weatherImage.setAttribute("src", "images/foggy.gif");
+  } else if (weather.includes("clouds")) {
+    weatherImage.setAttribute("src", "images/clouds.gif");
   }
 }
 
-//get temp function
+//get temp function -- get city and
 
 function getTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let mainTemp = document.querySelector("#temp-a");
   let weather = response.data.weather[0].description;
+  let humidtiy = response.data.main.humidity;
+  let wind = response.data.wind.speed;
+  //let precepitation=
   mainTemp.innerHTML = `${temp}°`;
   let currentLocation = document.querySelector("#location");
   currentLocation.innerHTML = response.data.name;
-  console.log(response.data.weather[0].description);
+  //   console.log(response.data.weather[0].description);
+  console.log(response.data);
+  let update_humidity = document.querySelector("#humidity");
+  let update_wind = document.querySelector("#wind");
 
+  update_humidity.innerHTML = `${humidtiy}%`;
+  update_wind.innerHTML = `${Math.round(wind)} mph`;
+  //   console.log(response.data);
+  //   console.log(response.data.main.humidity);
+  //   console.log(response.data.wind.speed);
   weatherCheck(weather);
 }
 
 // get 5 day forecast
 function getForecast(response) {
-  console.log(response.data);
+  //console.log(response.data);
 }
 
 // Display city name
@@ -80,7 +82,7 @@ function userSearch(event) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${api}`;
   let loc = document.querySelector("#location");
   let submitForm = document.querySelector("#search-form");
-  loc.innerHTML = inputValue.value;
+  //loc.innerHTML = inputValue.value;
   axios.get(url).then(getTemp);
 }
 function returnPosition(position) {
@@ -99,6 +101,7 @@ function getCoordinates() {
   navigator.geolocation.getCurrentPosition(returnPosition);
 }
 
+// IF USER CLICKS THE SEARCH BUTTON
 let userInput = document.querySelector(".search-form");
 userInput.addEventListener("submit", userSearch);
 
