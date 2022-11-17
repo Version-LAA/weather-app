@@ -132,3 +132,5 @@ let tempSelect2 = document.querySelector("#ctemp");
 
 tempSelect1.addEventListener("click", showFare);
 tempSelect2.addEventListener("click", showCel);
+
+getCoordinates();
