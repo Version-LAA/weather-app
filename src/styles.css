@@ -133,6 +133,7 @@ body {
 #forecast {
   color: #a5d1d0;
   font-weight: bold;
+  font-family: "Poor Story", cursive;
 }
 .col-2:hover {
   background: rgba(165, 209, 208, 0.45);
