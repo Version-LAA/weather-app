@@ -39,6 +39,17 @@ function weatherCheck(weather) {
     weatherImage.setAttribute("src", "images/clouds.gif");
   }
 }
+function displayForecast(coordinates) {
+  console.log(coordinates);
+  let api = "97bed167ec49bff56e6c1b63daef9c86";
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${api}&units=imperial;`;
+  console.log(url);
+  axios.get(url).then(getForecast);
+  //   let api = "97bed167ec49bff56e6c1b63daef9c86";
+  //   //let cords = coordinates;
+  //   //let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily&appid=${api}`;
+  //   axios.get(url).then(getForecast());
+}
 
 //get temp function -- get city and
 
@@ -49,6 +60,8 @@ function getTemp(response) {
   let humidtiy = response.data.main.humidity;
   let wind = response.data.wind.speed;
   let weather_desc = response.data.weather[0].description;
+  let cord_lat = response.data.coord.lat;
+  let cord_long = response.data.coord.lon;
   //let precepitation=
   mainTemp.innerHTML = `${temp}°`;
   let currentLocation = document.querySelector("#location");
@@ -67,11 +80,12 @@ function getTemp(response) {
   //   console.log(response.data.wind.speed);
   to_celcius = Math.round(temp);
   weatherCheck(weather);
+  displayForecast(response.data.coord);
 }
 
 // get 5 day forecast
-function getForecast() {
-  //console.log(response.data);
+function getForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["mon", "tue", "wed", "thur", "fri"];
   let forecastHTML = `<div class="row">`;
@@ -155,5 +169,5 @@ let tempSelect2 = document.querySelector("#ctemp");
 
 tempSelect1.addEventListener("click", showFare);
 tempSelect2.addEventListener("click", showCel);
-getForecast();
+//getForecast();
 getCoordinates();
