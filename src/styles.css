@@ -130,6 +130,19 @@ body {
   top: -10px;
   color: #a4d1d1;
 }
+#forecast {
+  color: #a5d1d0;
+  font-weight: bold;
+}
+.col-2:hover {
+  background: rgba(165, 209, 208, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(165, 209, 208, 0.31);
+  color: whitesmoke;
+}
 .weather-forecast {
   padding-top: 10px;
   text-align: center;
