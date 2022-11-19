@@ -73,22 +73,23 @@ function getTemp(response) {
 function getForecast() {
   //console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur"];
+  let days = ["mon", "tue", "wed", "thur", "fri"];
   let forecastHTML = `<div class="row">`;
-
   days.forEach(function (day) {
-    forecastHTML = forecastHTML + `<div class="col-2"> test`;
-    //       `
-    //       <div class="col-8">
-    //         <div class="weather-day">${day}</div>
-    //         <img id="d1-image" src="images/rain.gif" />
-    //         <div id="d1" class="ftemp">
-    //             <span id="d1-min"> #°</span>/ <span id="d1-max">#</span>
-    //         </div>
-    //       </div>`;
+    forecastHTML =
+      forecastHTML +
+      `
+       <div class="col-2 id="forecast-space">
+         <div class="weather-date">${day}</div>
+         <img src="images/clouds.gif" width="55" />
+         <div class="weather-forecast-temp">
+           <span id="min-temp">12</span>/<span id="max-temp">16</span>
+         </div>
+       </div>
+     `;
   });
+  forecastHTML = forecastHTML + `</div`;
 
-  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -104,6 +105,7 @@ function userSearch(event) {
   let submitForm = document.querySelector("#search-form");
   //loc.innerHTML = inputValue.value;
   axios.get(url).then(getTemp);
+  getForecast();
 }
 function returnPosition(position) {
   let lat = position.coords.latitude;
@@ -153,6 +155,5 @@ let tempSelect2 = document.querySelector("#ctemp");
 
 tempSelect1.addEventListener("click", showFare);
 tempSelect2.addEventListener("click", showCel);
-
+getForecast();
 getCoordinates();
-//getForecast();

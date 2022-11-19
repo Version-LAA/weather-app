@@ -132,7 +132,10 @@ body {
 }
 .weather-forecast {
   padding-top: 10px;
+  text-align: center;
+  margin-right: -60px;
 }
+
 #d1-image {
   position: relative;
   width: 50px;
