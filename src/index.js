@@ -42,7 +42,7 @@ function weatherCheck(weather) {
 function displayForecast(coordinates) {
   console.log(coordinates);
   let api = "97bed167ec49bff56e6c1b63daef9c86";
-  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${api}&units=imperial;`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${api}&units=imperial`;
   console.log(url);
   axios.get(url).then(getForecast);
   //   let api = "97bed167ec49bff56e6c1b63daef9c86";
@@ -83,21 +83,52 @@ function getTemp(response) {
   displayForecast(response.data.coord);
 }
 
+function forecastImage(w) {
+  let weatherImage = document.querySelector("#forecast-image");
+  if (weather === "clear sky") {
+    weatherImage.setAttribute("src", "images/sunrise.gif");
+  } else if (weather === "thunderstorm") {
+    weatherImage.setAttribute("src", "images/storm.gif");
+  } else if (weather === "snow") {
+    weatherImage.setAttribute("src", "images/snowflake.gif");
+  } else if (weather.includes("rain")) {
+    weatherImage.setAttribute("src", "images/rain.gif");
+  } else if (weather === "mist") {
+    weatherImage.setAttribute("src", "images/foggy.gif");
+  } else if (weather.includes("clouds")) {
+    weatherImage.setAttribute("src", "images/clouds.gif");
+  }
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
 // get 5 day forecast
 function getForecast(response) {
-  console.log(response.data.daily);
+  let result = response.data.daily;
+  result = result.slice(0, 5);
+  console.log(result);
   let forecastElement = document.querySelector("#forecast");
-  let days = ["mon", "tue", "wed", "thur", "fri"];
+  console.log(result.length);
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+  result.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
        <div class="col-2 id="forecast-space">
-         <div class="weather-date">${day}</div>
-         <img src="images/clouds.gif" width="55" />
+         <div class="weather-date">${formatDay(forecastDay.dt)}</div>
+         <img id = "forecast-image" src="https://openweathermap.org/img/wn/${
+           forecastDay.weather[0].icon
+         }@2x.png" width="55" />
          <div class="weather-forecast-temp">
-           <span id="min-temp">12</span>/<span id="max-temp">16</span>
+           <span id="min-temp">${Math.round(
+             forecastDay.temp.min
+           )}°</span>/<span id="max-temp">${Math.round(
+        forecastDay.temp.max
+      )}°</span>
          </div>
        </div>
      `;
@@ -169,5 +200,3 @@ let tempSelect2 = document.querySelector("#ctemp");
 
 tempSelect1.addEventListener("click", showFare);
 tempSelect2.addEventListener("click", showCel);
-//getForecast();
-getCoordinates();
