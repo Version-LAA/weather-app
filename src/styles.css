@@ -130,15 +130,24 @@ body {
   top: -10px;
   color: #a4d1d1;
 }
+.weather-forecast {
+  padding-top: 10px;
+}
 #d1-image {
+  position: relative;
   width: 50px;
   border: 1px solid;
+  right: 20px;
 }
 
 #d1 {
   position: relative;
   font-size: 15px;
-  left: 2px;
+  right: 15px;
+}
+#day {
+  font-size: 15px;
+  position: relative;
 }
 
 footer {

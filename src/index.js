@@ -70,8 +70,26 @@ function getTemp(response) {
 }
 
 // get 5 day forecast
-function getForecast(response) {
+function getForecast() {
   //console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur"];
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + `<div class="col-2"> test`;
+    //       `
+    //       <div class="col-8">
+    //         <div class="weather-day">${day}</div>
+    //         <img id="d1-image" src="images/rain.gif" />
+    //         <div id="d1" class="ftemp">
+    //             <span id="d1-min"> #°</span>/ <span id="d1-max">#</span>
+    //         </div>
+    //       </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 // Display city name
@@ -95,7 +113,7 @@ function returnPosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
   let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${longitude}&units=imperial&appid=${api}`;
   axios.get(url).then(getTemp);
-  axios.get(urlForecast).then(getForecast);
+  //axios.get(urlForecast).then(getForecast);
 }
 
 function getCoordinates() {
@@ -137,3 +155,4 @@ tempSelect1.addEventListener("click", showFare);
 tempSelect2.addEventListener("click", showCel);
 
 getCoordinates();
+//getForecast();
